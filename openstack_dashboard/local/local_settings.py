@@ -100,10 +100,11 @@ SECRET_KEY = secret_key.generate_or_read_from_file(
 #    },
 #}
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': ['172.16.41.201:11211','172.16.41.202:11211','172.16.41.203:11211']
+        'LOCATION': ['172.16.41.201:11211']
     }
 }
 

@@ -1,3 +1,0 @@
-horizon
-openstack_auth
-openstack_dashboard
