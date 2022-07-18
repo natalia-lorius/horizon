@@ -21,11 +21,40 @@
 {% with THEME=current_theme THEME_DIR=theme_dir %}
 {% compress css %}
   <style type="text/scss">
-    {% include 'themes/themes.scss' %}
+    {% comment %} {% include 'themes/themes.scss' %} {% endcomment %}
   </style>
 {% endcompress %}
 {% endwith %}
 
+<!--Codigo plantilla personalizada incia-->
+
 <link rel="shortcut icon" href="{% themable_asset 'img/favicon.ico' %}"/>
-<link rel="apple-touch-icon" sizes="180x180" href="{% themable_asset 'img/apple-touch-icon.png' %}" />
-<link rel="mask-icon" href="{% themable_asset 'img/safari-pinned-tab.svg' %}" color="#5bbad5" />
+<!--<link rel="apple-touch-icon" sizes="180x180" href="{% themable_asset 'img/apple-touch-icon.png' %}" />
+<link rel="mask-icon" href="{% themable_asset 'img/safari-pinned-tab.svg' %}" color="#5bbad5" />-->
+
+<link rel="apple-touch-icon" sizes="180x180" href="/static/dashboard/img/apple-touch-icon.png">
+<link rel="icon" type="img/png" sizes="32x32" href="/static/dashboard/img/favicon-32x32.png">
+<link rel="icon" type="img/png" sizes="16x16" href="/static/dashboard/img/favicon-16x16.png">
+<link rel="manifest" href="/static/dashboard/img/site.webmanifest">
+<link rel="mask-icon" href="/static/dashboard/img/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Google Web Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet"> 
+
+<!-- Icon Font Stylesheet -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href=" {% themable_asset 'owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href=" {% themable_asset 'tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
+
+<!-- Customized Bootstrap Stylesheet -->
+    <link href=" {% themable_asset 'css/bootstrap.min.css' %} " rel="stylesheet">
+
+<!-- Template Stylesheet -->
+<link href=" {% themable_asset 'css/style.css' %} " rel="stylesheet">

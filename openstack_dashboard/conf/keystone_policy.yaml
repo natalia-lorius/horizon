@@ -1,3 +1,9 @@
+"project_mod": "role:project_mod",
+"project_admin": "role:project_admin",
+"project_mod_or_admin": "rule:admin_required or rule:project_mod or rule:project_admin",
+"project_admin_only": "rule:admin_required or rule:project_admin",
+"identity:project_users_access": "rule:project_mod_or_admin",
+
 #"admin_required": "role:admin or is_admin:1"
 
 #"service_role": "role:service"

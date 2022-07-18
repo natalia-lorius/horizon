@@ -1,0 +1,447 @@
+@import "bootstrap/styles";
+@import "horizon/styles";
+
+// Extra small devices
+@media only screen and (max-width: 600px) {
+
+  // Estilos de login
+  #splash {
+    .login{
+      &:after {
+        top: -170px !important;
+        background-size: 250px !important;
+      }
+    }
+
+    .panel{
+      width: 90% !important;
+    }
+  }
+
+  .login{
+    margin-top: 0px !important;
+  }
+
+
+  // Estilos del panel interno
+  .ng-scope{
+    .topbar{
+      .navbar{
+        .container-fluid{
+          .navbar-header{
+            display: flex !important;
+
+            .navbar-brand{
+              order: 2;
+              background-position: center !important;
+            }
+
+            #sidebar-toggle{
+              order: 1;
+            }
+
+            .navbar-toggle{
+              order: 3;
+            }
+
+
+          }
+        }
+      }
+    }
+  }
+  
+
+  
+
+} 
+
+// Smarthphone Media Queries:
+@media (min-width: 576px) {
+  #splash {
+
+    .login{
+      &:after {
+        top: -210px !important;
+        background-size: 400px !important;
+      }
+    }
+
+    .panel{
+      width: 90% !important;
+    }
+  }
+
+  .login{
+    margin-top: 0px !important;
+  }
+}
+
+// Tablet Media Queries
+@media (min-width: 768px) {
+  #splash {
+    .panel{
+      width: 50% !important;
+    }
+  }
+
+  .login{
+    margin-top: 0px !important;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+  #splash {
+    .panel{
+      width: 30% !important;
+    }
+  }
+
+  
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+  #splash {
+    .panel{
+      width: 30% !important;
+    }
+  }
+}
+
+
+
+
+@font-face {
+  font-family: "made_tommy_softblack";
+  src: url("../ubuntu/static/mtsb.woff2") format("woff2");
+}
+
+
+/* Ubuntu styles */
+body, html{
+  height: 100%;
+  width: 100%;
+  font-family: "made_tommy_softblack" monospace !important;
+
+}
+
+
+body,
+.page-header {
+  // font-family: Ubuntu, Arial, "libra sans", sans-serif;
+  font-weight: 300;
+}
+
+p {
+  margin: 10px 0;
+}
+
+a,
+a:link,
+a:visited {
+  color: $brand-color;
+}
+
+// .row {
+  // margin-bottom: 20px;
+  // margin-top: 20px;
+// }
+
+table {
+  background-color: $table-bg;
+  border: 1px solid #ddd;
+}
+
+.table_actions {
+  margin-bottom: 10px;
+}
+
+.topbar,
+.topbar .switcher_bar .btn.btn-topnav,
+.navbar-default {
+  background: $brand-color;
+}
+
+.navbar-default .navbar-nav > li > a {
+  border-color: $brand-color;
+  color: $white !important;
+
+  &:hover,
+  &:focus {
+    border-color: $topbar-link-hover;
+    background: $topbar-link-hover;
+    color: $white;
+  }
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  background-color: $topbar-link-hover;
+  color: $white;
+}
+
+.navbar-brand {
+  background-image: url("/static/themes/ubuntu/img/logo-ubuntu-white.png");
+  background-position: 20px 4px;
+  background-repeat: no-repeat;
+  background-size: 90px;
+
+  img {
+    opacity: 0;
+  }
+}
+
+.nav_accordion dt li a.active,
+.nav_accordion dd li a.active {
+  border-left: 4px solid $brand-color;
+  color: $brand-color;
+}
+
+.nav-tabs {
+  margin-bottom: 10px;
+}
+
+.navbar .dropdown-menu:before {
+  display: none;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover {
+  background-color: $nav-active-color;
+
+  &:hover {
+    background-color: $nav-hover-color;
+  }
+}
+
+.d3_pie_chart_usage .arc.inner {
+  fill: $brand-color;
+}
+
+.container-fluid {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.fa.hz-icon-required {
+  color: $brand-color;
+}
+
+.context-selection > li > ul > li > a > .fa.fa-check {
+  left: 0.5em;
+  padding: 0;
+}
+
+.form-group label {
+  margin-right: 5px;
+}
+
+/* Login splash screen */
+#splash {
+  background: url("/static/themes/ubuntu/img/image-background-pattern2.jpg");
+  background-size: cover;
+  // background: linear-gradient(to right, rgba(100, 100, 100, 0.2), transparent), url("/static/themes/ubuntu/img/image-background-pattern.jpg");
+  
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100% !important;
+  width: 100% !important;
+
+  .login {
+    color: $white !important;
+    // background-color: $white;
+    box-shadow: 0px 1px 3px 1px rgba(51,51,51,0.2);
+    -moz-box-shadow: 0px 1px 3px 1px rgba(51,51,51,0.2);
+    -webkit-box-shadow: 0px 1px 3px 1px rgba(51,51,51,0.2);
+  // max-width: 500px; 
+    // padding-bottom: 20px;
+    // padding-top: 60px;
+    padding-bottom: 0px !important;
+    position: relative;
+    // margin-top: 0px !important;
+    width: 100% !important;
+
+    a,
+    a:link,
+    a:visited {
+      color: $white;
+      font-weight: bold;
+    }
+
+    .row {
+      // margin-bottom: 20px;
+      color: $white;
+      // margin-top: 20px;
+    }
+
+    .splash-logo {
+      display: none;
+    }
+
+    // &:after {
+    //   background-image: url("/static/themes/ubuntu/img/logo-ubuntu-orange.svg");
+    //   background-repeat: no-repeat;
+    //   background-position: center;
+    //   color: $brand-color;
+    //   content: "";
+    //   display: block;
+    //   text-align: center;
+    //   position: absolute;
+    //   top: -200px;
+    //   width: 100%;
+    //   background-size: 400px;
+    //   height: 300px;
+    // }
+
+    .horizontal-center {
+      margin: 0;
+      width: auto;
+      padding-right: 0px !important;
+      padding-left: 0px !important;
+    }
+  }
+}
+
+/* Sidebar panel */
+a.list-group-item:hover,
+a.list-group-item:focus,
+button.list-group-item:hover,
+button.list-group-item:focus,
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+  color: #888;
+  background-color: $light-grey;
+}
+
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+  font-weight: bold;
+}
+
+/* Buttons (btn) */
+.btn-primary {
+  background-color: $brand-color;
+  border-color: darken($brand-color, 5%);
+  color: $white !important;
+  margin-right: 5px;
+
+  &.pull-right {
+    margin-right: 0;
+  }
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .btn-primary.dropdown-toggle {
+  background-color: lighten($brand-color, 5%);
+  border-color: $brand-color;
+}
+
+.btn-primary.disabled {
+  background-color: #efefef;
+  border: 1px solid #efefef;
+}
+
+.btn-primary.disabled:hover,
+.btn-primary.disabled:focus,
+.btn-primary.disabled.focus,
+.btn-primary[disabled]:hover,
+.btn-primary[disabled]:focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary:hover,
+fieldset[disabled] .btn-primary:focus,
+fieldset[disabled] .btn-primary.focus {
+  background: $brand-color;
+  color: $white;
+  cursor: not-allowed;
+  opacity: .3;
+}
+
+/* Loading spinner */
+.modal-body p {
+  margin: 0 0 9px;
+}
+
+.login{
+  // margin-top: 0px !important;
+}
+
+// Overriding default custom styles in Login only
+#splash{
+  .panel{
+    background-color: transparent !important;
+    border: none !important;
+    width: 30% ;
+  }
+
+  .panel-heading{
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: white !important;
+  }
+
+  .panel-footer{
+    background-color: transparent !important;
+    border-top: none !important;
+  }
+
+  #terms{
+    text-align: right;
+  }
+
+  #registration{
+    text-align: right;
+  }
+
+  #bg-black{
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80% !important;
+  }
+
+  #logo-login{
+    width: 80%;
+    height: auto;
+    max-width: 400px;
+    max-height: 400px;
+  }
+
+}
+
+
+// Adjutant styles
+#adjutant-container{
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 80% !important;
+}
+
+#reset-password{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, 
+.has-error .checkbox-inline, .has-error.radio label, .has-error.checkbox label, .has-error.radio-inline label, 
+.has-error.checkbox-inline label{
+  font-weight: bold;
+  color: #df736d !important;
+}

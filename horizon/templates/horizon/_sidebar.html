@@ -1,56 +1,112 @@
 {% load horizon i18n %}
 
-<ul id="sidebar-accordion" class="nav nav-pills nav-stacked">
-  {% for dashboard, panel_info in components %}
-    {% if user|has_permissions:dashboard %}
-      <li class="panel openstack-dashboard">
-        <a data-toggle="collapse"
-           data-parent="#sidebar-accordion"
-           data-target="#sidebar-accordion-{{ dashboard.slug }}"
-           aria-controls="sidebar-accordion-{{ dashboard.slug }}"
-           {% if current.slug != dashboard.slug %}
-             class="collapsed"
-           {% endif %}>
-          {{ dashboard.name }}
-          <span class="openstack-toggle pull-right fa"></span>
+
+
+
+
+
+<div class="navbar-nav w-100">
+
+    <!-- <elemento dashboard">  -->
+
+  <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+
+
+
+  <!-- <ul id="sidebar-accordion" class="nav nav-pills nav-stacked"> -->
+
+    <!-- <Project>  -->
+     
+      {% for dashboard, panel_info in components %}
+      {% if user|has_permissions:dashboard %}
+       <div class="nav-item dropdown">
+        <a 
+        data-toggle="collapse" 
+        data-parent="#sidebar-accordion" 
+        data-target="#sidebar-accordion-{{ dashboard.slug }}" 
+        aria-controls="sidebar-accordion-{{ dashboard.slug }}" 
+        class="nav-link dropdown-toggle" 
+        data-bs-toggle="dropdown">
+        <i class="fa me-2 icon-{{ dashboard.slug }}"></i> {{ dashboard.name }}
         </a>
-        <ul id="sidebar-accordion-{{ dashboard.slug }}"
-            class="nav collapse panel-collapse{% if current.slug == dashboard.slug %} in{% endif %}">
+
+
+        
+  
+
+        <div class="dropdown-menu bg-transparent border-0 nav collapse panel-collapse{% if current.slug == dashboard.slug %} in{% endif %}"  id="sidebar-accordion-{{ dashboard.slug }}">
+            
           {% for group, panels in panel_info.items %}
-            {% with panels|has_permissions_on_list:user as filtered_panels %}
-              {% if filtered_panels %}
-                {% if group.name %}
-                  <li class="panel openstack-panel-group">
-                    <a data-toggle="collapse"
-                       data-parent="#sidebar-accordion-{{ dashboard.slug }}"
-                       data-target="#sidebar-accordion-{{ dashboard.slug }}-{{ group.slug }}"
-                       aria-controls="sidebar-accordion-{{ dashboard.slug }}-{{ group.slug }}"
-                       {% if current.slug == dashboard.slug and current_panel_group != group.slug %}class="collapsed"
-                       {% elif current.slug != dashboard.slug and forloop.counter0 != 0 %}class="collapsed"{% endif %}>
-                      {{ group.name }}
-                      <span class="openstack-toggle fa pull-right"></span>
-                    </a>
-                {% endif %}
-                    <div id="sidebar-accordion-{{ dashboard.slug }}-{{ group.slug }}"
-                      class="list-group collapse 
-                        {% if current.slug == dashboard.slug and current_panel_group == group.slug or group.slug == 'default' %} in
-                        {% elif current.slug != dashboard.slug and forloop.counter0 == 0 %} in{% endif %}">
-                {% for panel in filtered_panels %}
-                    <a class="openstack-spin list-group-item openstack-panel {% if current.slug == dashboard.slug and current_panel == panel.slug %}active{% endif %}" href="{{ panel.get_absolute_url }}"
-                       target="_self"
-                       tabindex="{{ forloop.counter }}" >
-                      {{ panel.name }}
-                    </a>
-                {% endfor %}
+              {% with panels|has_permissions_on_list:user as filtered_panels %}
+                {% if filtered_panels %}
+                  {% if group.name %}
+                    <div class="nav-item dropdown">
+                    <a 
+                    data-toggle="collapse" 
+                    data-parent="#sidebar-accordion-{{ dashboard.slug }}" 
+                    data-target="#sidebar-accordion-{{ dashboard.slug }}-{{ group.slug }}"
+                    aria-controls="sidebar-accordion-{{ dashboard.slug }}-{{ group.slug }}"
+                    class="nav-link dropdown-toggle" 
+                    class="dropdown-item"> 
+                  
+                        {{ group.name }}   <!-- <Compute>  -->
+                    </a>   
+
+                    {% endif %}
+                      <div id="sidebar-accordion-{{ dashboard.slug }}-{{ group.slug }}"
+                        class="list-group  
+                          {% if current.slug == dashboard.slug and current_panel_group == group.slug or group.slug == 'default' %} in
+                          {% elif current.slug != dashboard.slug %} in{% endif %}">
+                    {% for panel in filtered_panels %}
+                      <a class="openstack-spin list-group-item openstack-panel {% if current.slug == dashboard.slug and current_panel == panel.slug %}active{% endif %}" href="{{ panel.get_absolute_url }}"
+                         target="_self"
+                         tabindex="{{ forloop.counter }}" >
+                        {{ panel.name }}
+                      </a>
+                  {% endfor %}
+                      </div>
+                  {% if group.name %}
                     </div>
-                {% if group.name %}
-                  </li>
+                  {% endif %}
                 {% endif %}
-              {% endif %}
-            {% endwith %}
-          {% endfor %}
-        </ul>
-      </li>
-    {% endif %}
-  {% endfor %}
-</ul>
+              {% endwith %}
+            {% endfor %}
+        </div>
+      </div>
+
+          
+            
+          
+        
+      {% endif %}
+    {% endfor %}
+
+
+  <!--
+  <div class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
+      <div class="dropdown-menu bg-transparent border-0">
+          <a href="button.html" class="dropdown-item">Buttons</a>
+          <a href="typography.html" class="dropdown-item">Typography</a>
+          <a href="element.html" class="dropdown-item">Other Elements</a>
+      </div>
+  </div>
+  <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
+  <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
+  <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
+  <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
+  <div class="nav-item dropdown">
+
+      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
+      <div class="dropdown-menu bg-transparent border-0">
+          <a href="signin.html" class="dropdown-item">Sign In</a>
+          <a href="signup.html" class="dropdown-item">Sign Up</a>
+          <a href="404.html" class="dropdown-item">404 Error</a>
+          <a href="blank.html" class="dropdown-item">Blank Page</a>
+      </div>
+
+
+
+  </div>
+-->
+</div>

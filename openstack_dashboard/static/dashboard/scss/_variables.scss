@@ -2,6 +2,7 @@
 @import 'bootstrap_helpers';
 
 
+
 /* When used with Horizon via Django, this value is set automatically from
    settings.py and is added dynamically to the namespace through
    horizon/utils/scss_filter.py */
@@ -50,7 +51,7 @@ $overview_chart_height: 81px;
 /* Responsive Table */
 $detail-row-padding: 1em !default;
 $expander-width: 1.5em !default;
-$reorder-border: 2px solid #1f83c6 !default;
+$reorder-border: 2px solid #B5BD00 !default;
 $table-col-avg-width: 150px !default;
 $table-border: 1px solid $table-border-color !default;
 $table-gap-height: 0.5em !default;

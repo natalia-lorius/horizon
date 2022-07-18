@@ -22,6 +22,8 @@ from openstack_dashboard.settings import HORIZON_CONFIG
 
 DEBUG = True
 
+SITE_BRANDING = 'Lorius Dashboard'
+
 # This setting controls whether or not compression is enabled. Disabling
 # compression makes Horizon considerably slower, but makes it much easier
 # to debug JS and CSS changes
@@ -104,7 +106,7 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': ['172.16.41.201:11211']
+        'LOCATION': ['172.16.41.202:11211']
     }
 }
 
@@ -133,6 +135,9 @@ OPENSTACK_KEYSTONE_ADMIN_URL = "https://panel.lorius.cloud:35357/v3"
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = "admin" 
 #OPENSTACK_KEYSTONE_ENDPOINT_TYPE = "publicURL"
 #OPENSTACK_KEYSTONE_CACERT = "/home/leandro/root.crt"
+# Adjutant Configuration
+OPENSTACK_ADJUTANT_URL = "http://internal.estrato.cloud:5050/v1"
+
 
 # The timezone of the server. This should correspond with the timezone
 # of your entire OpenStack installation, and hopefully be in UTC.
